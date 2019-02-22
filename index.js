@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("www"));
 
 app.get("/users/:uname", (req, res) => {
-    res.end("Hello " + req.params.uname);
+    res.end("Hello " + req.params.uname +"...how are you doing today?");
 });
 
 let oGames = {};
@@ -20,8 +20,7 @@ app.post("/sms", (req, res) =>{
     }    
     let sReply = oGames[sFrom].makeAMove(req.body.Body);
 
-    res.end("<Response><Message>" + 
-    sReply + "</Message></Response>");
+    res.end("<Response><Message>" +    sReply + "</Message></Response>");
 
 });
 
